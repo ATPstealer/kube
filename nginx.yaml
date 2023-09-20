@@ -20,7 +20,7 @@ metadata:
   name: nginx-svc
   namespace: learning
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: nginx-selector
   ports:
