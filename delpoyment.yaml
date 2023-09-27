@@ -18,8 +18,9 @@ spec:
           image: nginx:1.14.2
           ports:
             - containerPort: 80
-        - name: mysql
-          image: mysql:latest
+        - name: init
+          image: busybox:latest
+          command: [ "sleep", "100000" ]
 
 ---
 
