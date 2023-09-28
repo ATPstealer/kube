@@ -18,9 +18,10 @@ spec:
           image: nginx:1.14.2
           ports:
             - containerPort: 80
+      initContainers:
         - name: init
           image: busybox:latest
-          command: [ "sleep", "100000" ]
+          command: [ "sleep", "10" ]
 
 ---
 
