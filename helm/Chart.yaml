@@ -1,0 +1,6 @@
+apiVersion: v2
+name: deploy
+description: test
+type: application
+version: 0.1.5
+appVersion: "1.14.2"

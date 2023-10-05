@@ -1,0 +1,15 @@
+app:
+  image: nginx
+  version: 1.14.2
+init: true
+ns: test
+inits:
+  - name: init
+    image: busybox:latest
+    command: "[ \"echo\", \"123\" ]"
+  - name: init2
+    image: busybox:latest
+    command: "[ \"echo\", \"123\" ]"
+  - name: init3
+    image: busybox:latest
+    command: "[ \"echo\", \"123\" ]"

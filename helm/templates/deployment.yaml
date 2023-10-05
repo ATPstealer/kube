@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  namespace: {{ .Values.ns }}
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx-selector
+  template:
+    metadata:
+      labels:
+        app: nginx-selector
+    spec:
+      containers:
+        - name: nginx
+          image: {{ .Values.app.image }}:{{.Values.app.version}}
+          ports:
+            - containerPort: 80
+      {{ if .Values.init }}
+      initContainers:
+        {{- range .Values.inits }}
+        - name: {{ .name }}
+          image: {{ .image }}
+          command: {{ .command }}
+        {{- end}}
+      {{ end }}
